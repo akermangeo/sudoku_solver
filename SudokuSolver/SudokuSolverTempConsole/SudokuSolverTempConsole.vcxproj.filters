@@ -15,36 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="pch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sudoku.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="solve_result.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sudoku_square.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sudoku_group.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="SudokuSolver.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="pch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sudoku.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sudoku_square.cpp">
+    <ClCompile Include="SudokuSolverTempConsole.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
