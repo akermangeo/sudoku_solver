@@ -143,12 +143,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="change_type.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="sudoku_group.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="sudoku.h" />
     <ClInclude Include="solve_result.h" />
-    <ClInclude Include="sudoku_square.h" />
+    <ClInclude Include="sudoku_cell.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -159,7 +160,8 @@
     </ClCompile>
     <ClCompile Include="sudoku.cpp" />
     <ClCompile Include="SudokuSolver.cpp" />
-    <ClCompile Include="sudoku_square.cpp" />
+    <ClCompile Include="sudoku_cell.cpp" />
+    <ClCompile Include="sudoku_group.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
