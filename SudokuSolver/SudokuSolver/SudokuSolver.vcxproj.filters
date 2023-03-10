@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\sudoku_components">
+      <UniqueIdentifier>{152f7740-c0bf-48b3-a703-83c7304482a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\model">
+      <UniqueIdentifier>{ec198b45-b66b-49ad-8e6e-ebdd7904cad0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -22,18 +28,30 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sudoku.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\sudoku_components</Filter>
+    </ClInclude>
+    <ClInclude Include="sudoku_cell.h">
+      <Filter>Header Files\sudoku_components</Filter>
+    </ClInclude>
+    <ClInclude Include="sudoku_group.h">
+      <Filter>Header Files\sudoku_components</Filter>
+    </ClInclude>
+    <ClInclude Include="sudoku_value.h">
+      <Filter>Header Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="change_type.h">
+      <Filter>Header Files\model</Filter>
     </ClInclude>
     <ClInclude Include="solve_result.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sudoku_cell.h">
+    <ClInclude Include="certainty_type.h">
+      <Filter>Header Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="sudoku_value_factory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sudoku_group.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="change_type.h">
+    <ClInclude Include="sudoku_update_error.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -47,10 +65,10 @@
     <ClCompile Include="sudoku.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sudoku_cell.cpp">
+    <ClCompile Include="sudoku_group.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sudoku_group.cpp">
+    <ClCompile Include="sudoku_value_factory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
