@@ -11,7 +11,7 @@ class sudoku
 public:
 	
 	sudoku();
-	void set_value(int row, int column, int value);
+	void set_value(int row, int column, int value) const;
 	solve_result solve();
 
 private:

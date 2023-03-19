@@ -143,7 +143,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="certainty_type.h" />
     <ClInclude Include="change_type.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="sudoku_group.h" />
@@ -153,7 +152,6 @@
     <ClInclude Include="sudoku_cell.h" />
     <ClInclude Include="sudoku_update_error.h" />
     <ClInclude Include="sudoku_value.h" />
-    <ClInclude Include="sudoku_value_factory.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -164,8 +162,9 @@
     </ClCompile>
     <ClCompile Include="sudoku.cpp" />
     <ClCompile Include="SudokuSolver.cpp" />
+    <ClCompile Include="sudoku_cell.cpp" />
     <ClCompile Include="sudoku_group.cpp" />
-    <ClCompile Include="sudoku_value_factory.cpp" />
+    <ClCompile Include="sudoku_unsolvable_error.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -19,6 +19,12 @@
     <Filter Include="Header Files\model">
       <UniqueIdentifier>{ec198b45-b66b-49ad-8e6e-ebdd7904cad0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\sudoku_components">
+      <UniqueIdentifier>{c384c875-41ea-4649-b31c-e2e53a693c04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\errors">
+      <UniqueIdentifier>{f0db4cae-c9e9-419f-9111-3b5d6da67550}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -36,40 +42,37 @@
     <ClInclude Include="sudoku_group.h">
       <Filter>Header Files\sudoku_components</Filter>
     </ClInclude>
-    <ClInclude Include="sudoku_value.h">
-      <Filter>Header Files\model</Filter>
-    </ClInclude>
     <ClInclude Include="change_type.h">
       <Filter>Header Files\model</Filter>
     </ClInclude>
     <ClInclude Include="solve_result.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="certainty_type.h">
-      <Filter>Header Files\model</Filter>
-    </ClInclude>
-    <ClInclude Include="sudoku_value_factory.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="sudoku_value.h">
+      <Filter>Header Files\sudoku_components</Filter>
     </ClInclude>
     <ClInclude Include="sudoku_update_error.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\errors</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SudokuSolver.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="sudoku.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\sudoku_components</Filter>
+    </ClCompile>
+    <ClCompile Include="SudokuSolver.cpp">
+      <Filter>Source Files\sudoku_components</Filter>
     </ClCompile>
     <ClCompile Include="sudoku_group.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\sudoku_components</Filter>
     </ClCompile>
-    <ClCompile Include="sudoku_value_factory.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="sudoku_cell.cpp">
+      <Filter>Source Files\sudoku_components</Filter>
+    </ClCompile>
+    <ClCompile Include="sudoku_unsolvable_error.h">
+      <Filter>Header Files\errors</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

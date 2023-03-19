@@ -1,7 +1,8 @@
 #pragma once
 #include <stdexcept>
 
-class sudoku_update_error : std::runtime_error
+
+class sudoku_update_error final : std::runtime_error
 {
 public:
 	explicit sudoku_update_error(const std::string& message) : runtime_error{message} {}
