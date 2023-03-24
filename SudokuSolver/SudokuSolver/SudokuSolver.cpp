@@ -1,10 +1,12 @@
-// SudokuSolver.cpp : Defines the functions for the static library.
-//
+#include <vector>
 
-#include "pch.h"
-#include "framework.h"
+#include "sudoku.h"
+#include "SudokuSolver.h"
+#include "solve_result.h"
 
-// TODO: This is an example of a library function
-void fnSudokuSolver()
+
+void solve_sudoku(const std::vector<std::vector<int>>& sudoku_vector)
 {
+	sudoku _sudoku{ sudoku_vector };
+	solve_result result = _sudoku.solve();
 }

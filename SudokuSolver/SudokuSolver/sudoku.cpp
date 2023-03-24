@@ -1,5 +1,9 @@
 #include "sudoku.h"
 
+#include <algorithm>
+
+#include "sudoku_unsolvable_error.h"
+
 using namespace std;
 
 
@@ -46,13 +50,101 @@ std::vector<shared_ptr<const sudoku_group>> sudoku::create_groups() const
 	return groups;
 }
 
-sudoku::sudoku() : cells_{create_cells()}, groups_{create_groups()}
+sudoku::sudoku() : cells_{ create_cells() }, groups_{ create_groups() } {}
+
+sudoku::sudoku(const std::vector<std::vector<int>>& sudoku_vector) : sudoku{}
 {
+	for (int row = 0; row < 9; ++row)
+	{
+		for (int column = 0; column < 9; ++column)
+		{
+			if (const int value_to_set = sudoku_vector[row][column]; value_to_set != 0)
+			{
+				set_value(row, column, value_to_set);
+			}
+		}
+	}
+}
+
+sudoku::sudoku(const sudoku& other) : sudoku{}
+{
+	for (int row = 0; row < 9; ++row)
+	{
+		for (int column = 0; column < 9; ++column)
+		{
+			cells_[row][column]->learn_knowledge_from(*other.get_cell(row, column));
+		}
+	}
 }
 
 void sudoku::set_value(const int row, const int column, const int value) const
 {
 	cells_[row][column]->set_value(value);
+}
+
+tuple<int, int> sudoku::find_uncertain_cell() const
+{
+	int best_row = 0;
+	int best_column = 0;
+	int best_options = 10;
+	for (int row = 0; row < 9; ++row)
+	{
+		for (int column = 0; column < 9; ++column)
+		{
+			if (auto& cell = *cells_[row][column]; !cell.get_value().is_certain())
+			{
+				if (const int possibilities_size = static_cast<int>(cell.get_possibilities().size()); possibilities_size
+					< best_options)
+				{
+					best_options = possibilities_size;
+					best_column = column;
+					best_row = row;
+				}
+			}
+		}
+	}
+	return tuple{best_row, best_column};
+}
+
+solve_result sudoku::solve() const
+{
+	if (is_solved())
+	{
+		return solved;
+	}
+	const auto indexes = find_uncertain_cell();
+	const int row = get<0>(indexes);
+	const int column = get<1>(indexes);
+	for (const int possibility : cells_[row][column]->get_possibilities())
+	{
+		sudoku sudoku_copy = *this;
+		if (const sudoku_validity validity = sudoku_copy.get_cell(row, column)->set_value(possibility); validity ==
+			valid)
+		{
+			if (const solve_result result = sudoku_copy.solve(); result == solved)
+			{
+				return solved;
+			}
+		}
+	}
+	return impossible;
+}
+
+bool sudoku::is_solved() const
+{
+	return ranges::all_of(cells_, [](auto row)
+		{
+			return ranges::all_of(row.begin(), row.end(), [](auto cell)
+				{
+					return cell->get_value().is_certain();
+				});
+		});
+}
+
+
+shared_ptr<sudoku_cell> sudoku::get_cell(int row, int column) const
+{
+	return cells_[row][column];
 }
 
 std::vector<std::shared_ptr<sudoku_cell>> sudoku::get_row_cells(const int row_index) const

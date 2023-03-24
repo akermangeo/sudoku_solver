@@ -1,15 +1,31 @@
-// SudokuSolverTempConsole.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
-#include <iostream>
 #include "sudoku.h"
+#include "SudokuSolver.h"
 
 int main()
 {
-    sudoku _sudoku{};
-    _sudoku.set_value(0, 0, 1);
-    _sudoku.set_value(8, 8, 9);
+    const auto sudoku_vector = std::vector<std::vector<int>>{
+        /*{0,7,0,0,0,1,0,0,0},
+        {0,3,5,0,0,0,0,7,9},
+        {0,0,4,0,5,0,6,0,8},
+        {0,4,0,6,7,0,0,0,0},
+        {0,0,8,0,0,0,0,6,0},
+        {0,0,0,1,0,4,7,0,3},
+        {9,8,0,0,0,3,0,0,0},
+        {6,2,0,5,1,8,0,4,7},
+        {4,5,0,7,9,0,8,3,2}};*/
+         {0,0,6,0,0,1,8,4,9},
+         {0,3,0,0,0,0,0,0,0},
+         {0,0,0,0,2,0,0,0,6},
+         {0,0,0,4,0,0,3,2,0},
+         {4,0,0,0,0,3,0,0,0},
+         {6,0,0,0,0,8,0,0,0},
+         {0,1,0,0,6,0,0,0,3},
+         {0,0,0,0,0,5,0,0,4},
+         {0,2,9,0,7,4,0,0,5}};
 
+
+    sudoku temp{ sudoku_vector };
+    solve_sudoku(sudoku_vector);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

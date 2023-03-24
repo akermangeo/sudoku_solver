@@ -45,14 +45,20 @@
     <ClInclude Include="change_type.h">
       <Filter>Header Files\model</Filter>
     </ClInclude>
-    <ClInclude Include="solve_result.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="sudoku_value.h">
       <Filter>Header Files\sudoku_components</Filter>
     </ClInclude>
     <ClInclude Include="sudoku_update_error.h">
       <Filter>Header Files\errors</Filter>
+    </ClInclude>
+    <ClInclude Include="SudokuSolver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="solve_result.h">
+      <Filter>Header Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="sudoku_validity.h">
+      <Filter>Header Files\model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

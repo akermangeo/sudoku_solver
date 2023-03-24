@@ -11,29 +11,31 @@ sudoku_group::sudoku_group(const std::vector<std::shared_ptr<sudoku_cell>>& cell
 {
 	for (int index = 0; index < 9; index++)
 	{
-		cells[index]->register_group([&, index](const change_type type) { this->update(index, type); });
+		cells[index]->register_group([&, index](const change_type type){ return this->update(index, type); });
 	}
 }
 
-void sudoku_group::update(const int change_index, const change_type type) const
+sudoku_validity sudoku_group::update(const int change_index, const change_type type) const
 {
 	if (type == value_known)
 	{
 		const sudoku_value set_value = cells_[change_index]->get_value();
 		if (!set_value.is_certain())
 		{
-			throw sudoku_update_error("Value not known when change type indicates known value");
+			throw runtime_error("Value known update called when value was not known.");
 		}
 		for (int index = 0; index < 9; index++)
 		{
 			if (index != change_index)
 			{
-				cells_[index]->remove_possibility(set_value.get_value());
+				const sudoku_validity validity = cells_[index]->tell_cannot_be(set_value.get_value());
+				if (validity == invalid)
+				{
+					return invalid;
+				}
 			}
 		}
+		return valid;
 	}
-	else
-	{
-		throw runtime_error("Change type not implemented.");
-	}
+	throw runtime_error("Change type not implemented.");
 }
