@@ -2,4 +2,4 @@
 #include <vector>
 
 
-void solve_sudoku(const std::vector<std::vector<int>>& sudoku_vector);
+solve_result solve_sudoku(const std::vector<std::vector<int>>& sudoku_vector);

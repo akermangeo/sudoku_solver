@@ -1,10 +1,25 @@
 #pragma once
+
 #include <memory>
 #include <vector>
 
-#include "solve_result.h"
+#include "solve_outcome.h"
+#include "sudoku.h"
 #include "sudoku_group.h"
 #include "sudoku_cell.h"
+
+class sudoku;
+
+class solve_result
+{
+public:
+	solve_result(const sudoku& result, const solve_outcome outcome);
+	[[nodiscard]] bool is_solved() const { return outcome_ == solved; }
+private:
+	solve_outcome outcome_;
+	std::unique_ptr<sudoku> sudoku_;
+};
+
 
 class sudoku
 {
@@ -21,7 +36,7 @@ private:
 	sudoku();
 	[[nodiscard]] bool is_solved() const;
 	void set_value(int row, int column, int value) const;
-	std::tuple<int, int> find_uncertain_cell() const;
+	[[nodiscard]] std::tuple<int, int> find_uncertain_cell() const;
 	[[nodiscard]] std::vector<std::shared_ptr<sudoku_cell>> get_row_cells(int row_index) const;
 	[[nodiscard]] std::vector<std::shared_ptr<sudoku_cell>> get_column_cells(int column_index) const;
 	[[nodiscard]] std::vector<std::shared_ptr<sudoku_cell>> get_cage_cells(int cage_index) const;

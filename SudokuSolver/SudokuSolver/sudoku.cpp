@@ -2,7 +2,6 @@
 
 #include <algorithm>
 
-#include "sudoku_unsolvable_error.h"
 
 using namespace std;
 
@@ -110,7 +109,7 @@ solve_result sudoku::solve() const
 {
 	if (is_solved())
 	{
-		return solved;
+		return solve_result{*this, solved};
 	}
 	const auto indexes = find_uncertain_cell();
 	const int row = get<0>(indexes);
@@ -121,13 +120,13 @@ solve_result sudoku::solve() const
 		if (const sudoku_validity validity = sudoku_copy.get_cell(row, column)->set_value(possibility); validity ==
 			valid)
 		{
-			if (const solve_result result = sudoku_copy.solve(); result == solved)
+			if (solve_result result = sudoku_copy.solve(); result.is_solved())
 			{
-				return solved;
+				return result;
 			}
 		}
 	}
-	return impossible;
+	return solve_result{*this, impossible};
 }
 
 bool sudoku::is_solved() const

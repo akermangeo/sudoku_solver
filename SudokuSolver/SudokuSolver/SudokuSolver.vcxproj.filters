@@ -25,6 +25,9 @@
     <Filter Include="Header Files\errors">
       <UniqueIdentifier>{f0db4cae-c9e9-419f-9111-3b5d6da67550}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\model">
+      <UniqueIdentifier>{7132c2e5-8d47-470c-818a-10a99cf39853}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -54,10 +57,10 @@
     <ClInclude Include="SudokuSolver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="solve_result.h">
+    <ClInclude Include="sudoku_validity.h">
       <Filter>Header Files\model</Filter>
     </ClInclude>
-    <ClInclude Include="sudoku_validity.h">
+    <ClInclude Include="solve_outcome.h">
       <Filter>Header Files\model</Filter>
     </ClInclude>
   </ItemGroup>
@@ -79,6 +82,9 @@
     </ClCompile>
     <ClCompile Include="sudoku_unsolvable_error.h">
       <Filter>Header Files\errors</Filter>
+    </ClCompile>
+    <ClCompile Include="solve_result.cpp">
+      <Filter>Source Files\model</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

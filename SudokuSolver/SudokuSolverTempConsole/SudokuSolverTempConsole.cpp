@@ -25,7 +25,7 @@ int main()
 
 
     sudoku temp{ sudoku_vector };
-    solve_sudoku(sudoku_vector);
+    solve_result result = solve_sudoku(sudoku_vector);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
